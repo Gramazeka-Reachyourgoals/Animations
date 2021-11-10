@@ -1,0 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-align: center;
+	font-family: "COMIC SANS MS", serif;
+	font-size: 40px;
+	color: #fff;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 20px;
+}
+
+.card {
+	position: relative;
+	width: 250px;
+	height: 400px;
+	border-radius: 10px;
+	background: linear-gradient(#41cd1c, #e8e513);
+	padding: 20px;
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&:nth-child(2) {
+		&:before {
+			height: 70%;
+			transform-origin: bottom center;
+			animation: rotate1 6s linear infinite;
+		}
+	}
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 50%;
+		height: 120%;
+		background: rgb(131, 58, 180);
+		animation: rotate2 6s linear infinite;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		border-radius: 10px;
+		inset: 5px;
+		background: linear-gradient(#41cd1c, #e8e513);
+	}
+
+	@keyframes rotate1 {
+		0% {
+			transform: translateY(-50%) rotate(0deg);
+		}
+
+		100% {
+			transform: translateY(-50%) rotate(360deg);
+		}
+	}
+
+	@keyframes rotate2 {
+		0% {
+			transform: rotate(90deg);
+		}
+
+		100% {
+			transform: rotate(450deg);
+		}
+	}
+
+	&>* {
+		position: relative;
+		z-index: 10;
+	}
+}
